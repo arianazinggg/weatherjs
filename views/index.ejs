@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/header')  %> 
+
+<body style ="background-color:#FFF5E4", width="100%"></body-style>
+<body>
+    <div>
+        <%- include('./partials/navbar')  %> 
+        
+        <div class="flex items-center justify-center mt-24 m-auto text-center rounded-3xl py-4 mx-auto mt-15 gap-15">
+            <div class="column">
+                <img src="https://img.icons8.com/external-parzival-1997-outline-color-parzival-1997/344/external-find-technology-in-daily-life-parzival-1997-outline-color-parzival-1997.png" class="sm:h-32 mr-5 mt-8 gap-8">
+                <img src=" https://img.icons8.com/stickers/344/philippines.png" class="sm:h-32 mr-5  mx-auto mt-8 gap-8">
+            </div> 
+
+            <div class="flex flex-col px-7">
+                <h3 class="text-5xl font-semibold text-sky-900">
+                    <%= weather[0]["location"]["name"] %> 
+                </h3>
+                <p class="text-4xl mt-2 text-sky-900">
+                    <%= weather[0]["location"]["lat"] %>° N, 
+                    <%= weather[0]["location"]["long"] %>° E 
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center justify-center mx-auto mt-15 gap-20">
+            <% for(let i = 0; i <= 4; i++){ %> 
+                <div class="weathericon flex flex-col">
+                    <% if (weather[0].forecast[i].skytextday  == "Clear"){ %>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/hsjzfumd.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                        </lord-icon>
+                    <% } if (weather[0].forecast[i].skytextday  == "Sunny"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/hsjzfumd.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                        </lord-icon>       
+                    <% } if (weather[0].forecast[i].skytextday  == "Partly Sunny"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                        <lord-icon
+                        src="https://cdn.lordicon.com/hsjzfumd.json"
+                        trigger="hover"
+                        style="width:200px;height:200px">
+                        </lord-icon>                        
+                    <% } if (weather[0].forecast[i].skytextday  == "Mostly Sunny"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                            <lord-icon
+                            src="https://cdn.lordicon.com/qddxotnk.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                            </lord-icon>    
+                    <% } if (weather[0].forecast[i].skytextday  == "Cloudy"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                            <lord-icon
+                            src="https://cdn.lordicon.com/siqvhqon.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                            </lord-icon>
+                    <% } if (weather[0].forecast[i].skytextday  == "Cloudy"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                        <lord-icon
+                        src="https://cdn.lordicon.com/siqvhqon.json"
+                        trigger="hover"
+                        style="width:200px;height:200px">
+                        </lord-icon>                             
+                    <% } if (weather[0].forecast[i].skytextday  == "Mostly Cloudy"){ %>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/hsjzfumd.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                        </lord-icon>  
+                    <% } if(weather[0].forecast[i].skytextday  == "Rain"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                            <lord-icon
+                            src="https://cdn.lordicon.com/hcqwemek.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                            </lord-icon>   
+                    <% } if(weather[0].forecast[i].skytextday  == "Rain Showers"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                            <lord-icon
+                            src="https://cdn.lordicon.com/xlagdnxo.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                            </lord-icon>    
+                    <% } if(weather[0].forecast[i].skytextday  == "T-Storms"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                            <lord-icon
+                            src="https://cdn.lordicon.com/ibzfuylj.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                            </lord-icon>  
+                    <% } if(weather[0].forecast[i].skytextday  == "Heavy T-Storms"){ %>
+                        <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/kxsavocs.json"
+                            trigger="hover"
+                            style="width:200px;height:200px">
+                        </lord-icon>  
+                    <% } %>
+                    <div class="text-2xl font-bold text-center mt-3">
+                        <% if(weather[0]["current"]["date"]  != weather[0].forecast[i].date ){ %> 
+                            <%= weather[0].forecast[i].day %>
+                        <% } %>
+                        <% if(weather[0]["current"]["date"] == weather[0].forecast[i].date){ %>
+                            Today
+                        <% } %>
+                    </div>  
+                    <div class="text-2xl text-center mt-1"><%= weather[0].forecast[i].date %></div> 
+                    <div class="flex flex-row justify-center gap-2 mt-1 px-5 py-1 dark:bg-slate-800">
+                        <div class="text-xl text-center"><%= weather[0].forecast[i].high %>° C</div> 
+                        <div class="text-xl text-center text-slate-600 dark:text-slate-500"><%= weather[0].forecast[i].low %>° C</div> 
+                    </div>
+                </div>
+            <% } %>   
+        </div>
+    </div>
+</html>
+
+<style>
+    .weathericon img{
+        width: 200px; 
+        height: 200px;
+        align-self: center; 
+    }
+</style>

@@ -1,0 +1,26 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "node application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node-app",
+    "express",
+    "node"
+  ],
+  "author": "aryan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "fetch": "^1.1.0",
+    "js": "^0.1.0",
+    "json": "^11.0.0",
+    "node": "^18.9.1",
+    "node-fetch": "^3.2.10",
+    "nodemon": "^2.0.20",
+    "weather-js": "^2.0.0"
+  }
+}
